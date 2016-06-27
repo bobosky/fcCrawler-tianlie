@@ -1,0 +1,138 @@
+package com.zj.bean;
+
+import java.io.Serializable;
+
+public class CompanyBean implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 公司名
+	 */
+	private String companyName="";
+	/**
+	 * 分类
+	 */
+	private String industryCategory="";
+	/**
+	 * 公司人数
+	 */
+	private String companyMemberNum="";
+	
+	/**
+	 * 公司分类
+	 */
+	private String companyCategory="";
+	/**
+	 * 公司url
+	 */
+	private String companyUrl="";
+	/**
+	 * 51job上公司id
+	 */
+	private String companyCode="";
+	
+	/**
+	 * 对应的地铁线路
+	 */
+	private String subWayLine="";
+	/**
+	 * subWay 站
+	 */
+	private String subWayStation="";
+	/**
+	 * 地铁线路对应的编码
+	 */
+	private String subWayLineCode="";
+	
+	/**
+	 * 战对应的编号
+	 */
+	private String subWayStationCode="";
+
+	
+	
+	public String getCompanyUrl() {
+		return companyUrl;
+	}
+
+	public void setCompanyUrl(String companyUrl) {
+		this.companyUrl = companyUrl;
+	}
+
+	public String getCompanyCode() {
+		return companyCode;
+	}
+
+	public void setCompanyCode(String companyCode) {
+		this.companyCode = companyCode;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public String getIndustryCategory() {
+		return industryCategory;
+	}
+
+	public void setIndustryCategory(String industryCategory) {
+		this.industryCategory = industryCategory;
+	}
+
+	public String getCompanyMemberNum() {
+		return companyMemberNum;
+	}
+
+	public void setCompanyMemberNum(String companyMemberNum) {
+		this.companyMemberNum = companyMemberNum;
+	}
+
+	public String getCompanyCategory() {
+		return companyCategory;
+	}
+
+	public void setCompanyCategory(String companyCategory) {
+		this.companyCategory = companyCategory;
+	}
+
+	public String getSubWayLine() {
+		return subWayLine;
+	}
+
+	public void setSubWayLine(String subWayLine) {
+		this.subWayLine = subWayLine;
+	}
+
+	public String getSubWayStation() {
+		return subWayStation;
+	}
+
+	public void setSubWayStation(String subWayStation) {
+		this.subWayStation = subWayStation;
+	}
+
+	public String getSubWayLineCode() {
+		return subWayLineCode;
+	}
+
+	public void setSubWayLineCode(String subWayLineCode) {
+		this.subWayLineCode = subWayLineCode;
+	}
+
+	public String getSubWayStationCode() {
+		return subWayStationCode;
+	}
+
+	public void setSubWayStationCode(String subWayStationCode) {
+		this.subWayStationCode = subWayStationCode;
+	}
+	
+	
+}

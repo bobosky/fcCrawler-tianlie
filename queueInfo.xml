@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jobList>
+    <job id="1" name="parking" isRun="false" threadCount="4">
+        <!--  start time now or datatime-->
+        <StartTime>now</StartTime>
+        <!--  cycle time to init queue-->
+        <CycleTime>1 interver day</CycleTime>
+        <!--  cycle strategy -->
+        <CycleStrategy>kill2</CycleStrategy>
+        <!-- web parse cycle time -->
+        <urlParseCycleTime>1</urlParseCycleTime>
+        <!--  input queue  num max limit -->
+        <InputQueueNum>300</InputQueueNum>
+        <!--   input queue timeout to wait ms-->
+        <InputQueueGetTime>1000</InputQueueGetTime>
+        <!--  queue memory redis:key -->
+        <InputQueueDb>Redis:testList</InputQueueDb>
+        <InputQueueUrl>192.168.1.4:51900</InputQueueUrl>
+        <!-- queue is init -->
+        <InputQueueInit>true</InputQueueInit>
+        <!--   output queue num max limit -->
+        <OutQueueNum>3000</OutQueueNum>
+        <!--   output queue timeout to wait ms-->
+        <OutQueueGetTime>10000</OutQueueGetTime>
+        
+        <OutQueueDb>Redis:testOutList</OutQueueDb>
+        <OutQueueUrl>192.168.1.4:51900</OutQueueUrl>
+        <!-- avilibaly print count -->
+        <PrintCount>10</PrintCount>
+    </job>
+    <job id="2" name="jobs" isRun="false" threadCount="3">
+        <!--  start time now or datatime-->
+        <StartTime>now</StartTime>
+        <!--  cycle time -->
+        <CycleTime>1 interver day</CycleTime>
+        <!--  cycle strategy -->
+        <CycleStrategy>kill</CycleStrategy>
+        <!-- web parse cycle time -->
+        <urlParseCycleTime>1</urlParseCycleTime>
+        <!--  input queue  num max limit -->
+        <InputQueueNum>100000</InputQueueNum>
+        <!--   input queue timeout to wait ms-->
+        <InputQueueGetTime>1000</InputQueueGetTime>
+        <InputQueueDb>Redis:JobList</InputQueueDb>
+        <InputQueueUrl>192.168.1.4:51900</InputQueueUrl>
+          <InputQueueInit>true</InputQueueInit>
+        <!--   output queue num max limit -->
+        <OutQueueNum>100000</OutQueueNum>
+        <!--   output queue timeout to wait ms-->
+        <OutQueueGetTime>10000</OutQueueGetTime>
+    </job>
+    <job id="3" name="subwayAndBus" isRun="false" threadCount="4">
+        <!--  start time now or datatime-->
+        <StartTime>now</StartTime>
+        <!--  cycle time -->
+        <CycleTime>1 interver day</CycleTime>
+        <!--  cycle strategy -->
+        <CycleStrategy>kill</CycleStrategy>
+        <!-- web parse cycle time -->
+        <urlParseCycleTime>1</urlParseCycleTime>
+        <!--  input queue  num max limit -->
+        <InputQueueNum>100000</InputQueueNum>
+        <!--   input queue timeout to wait ms-->
+        <InputQueueGetTime>1000</InputQueueGetTime>
+        <!--   output queue num max limit -->
+        <OutQueueNum>100000</OutQueueNum>
+        <!--   output queue timeout to wait ms-->
+        <OutQueueGetTime>10000</OutQueueGetTime>
+    </job>
+    <job id="4" name="busAndStation" isRun="false" threadCount="4">
+        <!--  start time now or datatime-->
+        <StartTime>now</StartTime>
+        <!--  cycle time -->
+        <CycleTime>1 interver day</CycleTime>
+        <!--  cycle strategy -->
+        <CycleStrategy>kill</CycleStrategy>
+        <!-- web parse cycle time -->
+        <urlParseCycleTime>1</urlParseCycleTime>
+        <!--  input queue  num max limit -->
+        <InputQueueNum>100000</InputQueueNum>
+        <!--   input queue timeout to wait ms-->
+        <InputQueueGetTime>1000</InputQueueGetTime>
+        <!--   output queue num max limit -->
+        <OutQueueNum>100000</OutQueueNum>
+        <!--   output queue timeout to wait ms-->
+        <OutQueueGetTime>10000</OutQueueGetTime>
+    </job>
+    <job id="5" name="fang" isRun="false" threadCount="1">
+        <!--  start time now or datatime-->
+        <StartTime>now</StartTime>
+        <!--  cycle time -->
+        <CycleTime>1 interver minute</CycleTime>
+        <!--  cycle strategy -->
+        <CycleStrategy>kill</CycleStrategy>
+        <!-- web parse cycle time -->
+        <urlParseCycleTime>1</urlParseCycleTime>
+        <!--  input queue  num max limit -->
+        <InputQueueNum>5000</InputQueueNum>
+        <!--   input queue timeout to wait ms-->
+        <InputQueueGetTime>1000</InputQueueGetTime>
+        <InputQueueDb>Redis:FangList</InputQueueDb>
+        <InputQueueUrl>192.168.1.11:51900</InputQueueUrl>
+        <!-- queue is init -->
+        <InputQueueInit>true</InputQueueInit>
+        <!--   output queue num max limit -->
+        <OutQueueNum>2000</OutQueueNum>
+        <!--   output queue timeout to wait ms-->
+        <OutQueueGetTime>10000</OutQueueGetTime>
+         <!-- avilibaly print count -->
+        <PrintCount>10</PrintCount>
+        <!--  soufang  increment -->
+        <ShellExecContent>java -jar -Xms2048m -Xmx2048m ZJCrawler_fat.jar intoMongo {static:fangFile}-{date-time}.txt 192.168.1.11 27017 demo fangUpdate 1000 100</ShellExecContent>
+    </job>
+    <job id="6" name="company" isRun="false" threadCount="1">
+        <!--  start time now or datatime-->
+        <StartTime>now</StartTime>
+        <!--  cycle time -->
+        <CycleTime>1 interver day</CycleTime>
+        <!--  cycle strategy -->
+        <CycleStrategy>kill</CycleStrategy>
+        <!-- web parse cycle time -->
+        <urlParseCycleTime>1</urlParseCycleTime>
+        <!--  input queue  num max limit -->
+        <InputQueueNum>2000</InputQueueNum>
+        <InputQueueDb>Redis:company51List</InputQueueDb>
+        <InputQueueUrl>192.168.1.11:51900</InputQueueUrl>
+        <InputQueueInit>true</InputQueueInit>
+        <!-- redis and file all write-->
+        <IsAllWriteRun>true</IsAllWriteRun>
+        <!--   input queue timeout to wait ms-->
+        <InputQueueGetTime>1000</InputQueueGetTime>
+        <!--   output queue num max limit -->
+        <OutQueueNum>2000</OutQueueNum>
+        <!--   output queue timeout to wait ms-->
+        <OutQueueGetTime>10000</OutQueueGetTime>
+        <OutQueueDb>Redis:company51companyUrlList</OutQueueDb>
+        <OutQueueUrl>192.168.1.11:51900</OutQueueUrl>
+    </job>
+     <job id="16" name="companyGetJobQueue" isRun="false" threadCount="3" fristTaskId="6">
+        <!--  start time now or datatime-->
+        <StartTime>now</StartTime>
+        <!--  cycle time -->
+        <CycleTime>1 interver day</CycleTime>
+        <!--  cycle strategy -->
+        <CycleStrategy>kill</CycleStrategy>
+        <!-- web parse cycle time -->
+        <urlParseCycleTime>1</urlParseCycleTime>
+        <InputQueueInit>true</InputQueueInit>
+        <!--  input queue  num max limit -->
+        <InputQueueNum>2000</InputQueueNum>
+        <InputFile>f://zj/company-2014-12-10.txt</InputFile>
+        <InputQueueDb>Redis:company51companyUrlList</InputQueueDb>
+        <InputQueueUrl>192.168.1.11:51900</InputQueueUrl>
+        <IsAllWriteRun>true</IsAllWriteRun>
+        <InputQueueInit>false</InputQueueInit>
+        <!--   input queue timeout to wait ms-->
+        <InputQueueGetTime>1000</InputQueueGetTime>
+        <!--   output queue num max limit -->
+        <OutQueueNum>2000</OutQueueNum>
+        <!--   output queue timeout to wait ms-->
+        <OutQueueGetTime>10000</OutQueueGetTime>
+        <OutQueueDb>Redis:company51jobUrlList</OutQueueDb>
+        <OutQueueUrl>192.168.1.11:51900</OutQueueUrl>
+    </job>
+    
+    <job id="17" name="companyGetJobDesc" isRun="false" threadCount="3" fristTaskId="16">
+        <!--  start time now or datatime-->
+        <StartTime>now</StartTime>
+        <!--  cycle time -->
+        <CycleTime>1 interver month</CycleTime>
+        <!--  cycle strategy -->
+        <CycleStrategy>kill</CycleStrategy>
+        <!-- web parse cycle time -->
+        <urlParseCycleTime>1</urlParseCycleTime>
+        <InputQueueInit>true</InputQueueInit>
+        <!--  input queue  num max limit -->
+        <InputQueueNum>2000</InputQueueNum>
+        <InputFile>f://zj/companyDescJob-2014-12-11.txt</InputFile>
+        <InputQueueDb>Redis:company51jobUrlList</InputQueueDb>
+        <InputQueueUrl>192.168.1.11:51900</InputQueueUrl>
+        <InputQueueInit>false</InputQueueInit>
+        <IsAllWriteRun>false</IsAllWriteRun>
+        <!--   input queue timeout to wait ms-->
+        <InputQueueGetTime>1000</InputQueueGetTime>
+        <!--   output queue num max limit -->
+        <OutQueueNum>2000</OutQueueNum>
+        <!--   output queue timeout to wait ms-->
+        <OutQueueGetTime>10000</OutQueueGetTime>
+        <ShellExecContent>java -jar -Xms3096m -Xmx3096m ZJCrawler_fat.jar intoMongoCompanyUpdate {static:companyDescFile}-{date:time}.txt {static:companyDescJobDesc}-{date:time}.txt {static:companyDescJob}-{date:time}.txt 192.168.1.4 27017 demo company51job 1000</ShellExecContent>
+    </job>
+    
+    <job id="7" name="companyEnd" isRun="false" threadCount="4">
+        <!--  start time now or datatime-->
+        <StartTime>now</StartTime>
+        <!--  cycle time -->
+        <CycleTime>1 interver day</CycleTime>
+        <!--  cycle strategy -->
+        <CycleStrategy>kill</CycleStrategy>
+        <!-- web parse cycle time -->
+        <urlParseCycleTime>1</urlParseCycleTime>
+        <!--  input queue  num max limit -->
+        <InputQueueNum>20000</InputQueueNum>
+        <!--   input queue timeout to wait ms-->
+        <InputQueueGetTime>1000</InputQueueGetTime>
+        <!--   output queue num max limit -->
+        <OutQueueNum>2000</OutQueueNum>
+        <!--   output queue timeout to wait ms-->
+        <OutQueueGetTime>10000</OutQueueGetTime>
+    </job>
+     <job id="8" name="companySearch" isRun="false" threadCount="4">
+        <!--  start time now or datatime-->
+        <StartTime>now</StartTime>
+        <!--  cycle time -->
+        <CycleTime>1 interver day</CycleTime>
+        <!--  cycle strategy -->
+        <CycleStrategy>kill</CycleStrategy>
+        <!-- web parse cycle time -->
+        <urlParseCycleTime>1</urlParseCycleTime>
+        <!--  input queue  num max limit -->
+        <InputQueueNum>20000</InputQueueNum>
+        <!--   input queue timeout to wait ms-->
+        <InputQueueGetTime>1000</InputQueueGetTime>
+        <!--   output queue num max limit -->
+        <OutQueueNum>2000</OutQueueNum>
+        <!--   output queue timeout to wait ms-->
+        <OutQueueGetTime>10000</OutQueueGetTime>
+    </job>
+    <job id="8" name="companySearchEnd" isRun="false" threadCount="4">
+        <!--  start time now or datatime-->
+        <StartTime>now</StartTime>
+        <!--  cycle time -->
+        <CycleTime>1 interver day</CycleTime>
+        <!--  cycle strategy -->
+        <CycleStrategy>kill</CycleStrategy>
+        <!-- web parse cycle time -->
+        <urlParseCycleTime>1</urlParseCycleTime>
+        <!--  input queue  num max limit -->
+        <InputQueueNum>20000</InputQueueNum>
+        <!--   input queue timeout to wait ms-->
+        <InputQueueGetTime>1000</InputQueueGetTime>
+         <!--  queue memory redis:key -->
+        <InputQueueDb>Redis:testList</InputQueueDb>
+        <InputQueueUrl>192.168.1.4:51900</InputQueueUrl>
+        <!-- queue is init -->
+        <InputQueueInit>true</InputQueueInit>
+        <!--   output queue num max limit -->
+        <OutQueueNum>2000</OutQueueNum>
+        <!--   output queue timeout to wait ms-->
+        <OutQueueGetTime>10000</OutQueueGetTime>
+        <OutQueueDb>Redis:testOutList</OutQueueDb>
+        <OutQueueUrl>192.168.1.4:51900</OutQueueUrl>
+         <!-- avilibaly print count -->
+        <PrintCount>10</PrintCount>
+    </job>
+    
+    <job id="18" name="dianpingArea" isRun="false" threadCount="1">
+        <!--  start time now or datatime-->
+        <StartTime>now</StartTime>
+        <!--  cycle time -->
+        <CycleTime>30 interver second</CycleTime>
+        <!--  cycle strategy -->
+        <CycleStrategy>kill</CycleStrategy>
+        <!-- web parse cycle time -->
+        <urlParseCycleTime>1</urlParseCycleTime>
+        <!--  input queue  num max limit -->
+        <InputQueueNum>20000</InputQueueNum>
+        <!--   input queue timeout to wait ms-->
+        <InputQueueGetTime>1000</InputQueueGetTime>
+         <!--  queue memory redis:key -->
+        <InputQueueDb>Redis:dianpingList</InputQueueDb>
+        <InputQueueUrl>192.168.1.11:51900</InputQueueUrl>
+        <!-- queue is init -->
+        <InputQueueInit>true</InputQueueInit>
+        <!--   output queue num max limit -->
+        <OutQueueNum>2000</OutQueueNum>
+        <!--   output queue timeout to wait ms-->
+        <OutQueueGetTime>10000</OutQueueGetTime>
+         <!-- avilibaly print count -->
+        <PrintCount>10</PrintCount>
+        <OutQueueDb>Mongo:demo,dianping</OutQueueDb>
+        <OutQueueUrl>192.168.1.11:27017</OutQueueUrl>
+        <ShellExecContent>java -jar -Xms2048m -Xmx2048m ZJCrawler_fat.jar intoMongo {static:bussinessAreaFile}-{date:time}.txt 192.168.1.11 27017 demo dianpingTest 100 100</ShellExecContent>
+    </job>
+    
+     <job id="19" name="fangList" isRun="true" threadCount="1">
+        <!--  start time now or datatime-->
+        <StartTime>now</StartTime>
+        <!--  cycle time -->
+        <CycleTime>1 interver minute</CycleTime>
+        <!--  cycle strategy -->
+        <CycleStrategy>kill</CycleStrategy>
+        <!-- web parse cycle time -->
+        <urlParseCycleTime>1</urlParseCycleTime>
+        <!--  input queue  num max limit -->
+        <InputQueueNum>20000</InputQueueNum>
+        <!--   input queue timeout to wait ms-->
+        <InputQueueGetTime>1000</InputQueueGetTime>
+         <!--  queue memory redis:key -->
+        <InputQueueDb>Redis:fangList</InputQueueDb>
+        <InputQueueUrl>192.168.1.11:51900</InputQueueUrl>
+        <!-- queue is init -->
+        <InputQueueInit>true</InputQueueInit>
+        <InputQueueInitString>北京,南京</InputQueueInitString>
+        <!--   output queue num max limit -->
+        <OutQueueNum>2000</OutQueueNum>
+        <!--   output queue timeout to wait ms-->
+        <OutQueueGetTime>10000</OutQueueGetTime>
+         <!-- avilibaly print count -->
+        <PrintCount>10</PrintCount>
+        <OutQueueDb>Redis:fangListOutList</OutQueueDb>
+        <OutQueueUrl>192.168.1.11:51900</OutQueueUrl>
+    </job>
+    
+     
+     <job id="20" name="fang" isRun="true" threadCount="4" fristTaskId="19">
+        <!--  start time now or datatime-->
+        <StartTime>now</StartTime>
+        <!--  cycle time -->
+        <CycleTime>1 interver day</CycleTime>
+        <!--  cycle strategy -->
+        <CycleStrategy>kill</CycleStrategy>
+        <!-- web parse cycle time -->
+        <urlParseCycleTime>100</urlParseCycleTime>
+        <!--  input queue  num max limit -->
+        <InputQueueNum>5000</InputQueueNum>
+        <!--   input queue timeout to wait ms-->
+        <InputQueueGetTime>1000</InputQueueGetTime>
+        <InputQueueDb>Redis:fangListOutList</InputQueueDb>
+        <InputQueueUrl>192.168.1.11:51900</InputQueueUrl>
+        <!-- queue is init -->
+        <InputQueueInit>true</InputQueueInit>
+        <!--   output queue num max limit -->
+        <OutQueueNum>2000</OutQueueNum>
+        <!--   output queue timeout to wait ms-->
+        <OutQueueGetTime>10000</OutQueueGetTime>
+         <!-- avilibaly print count -->
+        <PrintCount>10</PrintCount>
+        <!--  soufang  increment -->
+    </job>
+    
+     <job id="21" name="fangNew" isRun="false" threadCount="1">
+        <!--  start time now or datatime-->
+        <StartTime>now</StartTime>
+        <!--  cycle time -->
+        <CycleTime>1 interver day</CycleTime>
+        <!--  cycle strategy -->
+        <CycleStrategy>kill</CycleStrategy>
+        <!-- web parse cycle time -->
+        <urlParseCycleTime>1</urlParseCycleTime>
+        <!--  input queue  num max limit -->
+        <InputQueueNum>5000</InputQueueNum>
+        <!--   input queue timeout to wait ms-->
+        <InputQueueGetTime>1000</InputQueueGetTime>
+        <InputQueueDb>Redis:fangNewListOutList</InputQueueDb>
+        <InputQueueUrl>192.168.1.11:51900</InputQueueUrl>
+        <!-- queue is init -->
+        <InputQueueInit>true</InputQueueInit>
+        <InputQueueInitString>北京,南京</InputQueueInitString>
+        <!--   output queue num max limit -->
+        <OutQueueNum>2000</OutQueueNum>
+        <!--   output queue timeout to wait ms-->
+        <OutQueueGetTime>10000</OutQueueGetTime>
+         <!-- avilibaly print count -->
+        <PrintCount>10</PrintCount>
+        <!--  soufang  increment -->
+    </job>
+    
+</jobList>
